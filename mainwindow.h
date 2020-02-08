@@ -19,6 +19,8 @@ public:
 private slots:
     void on_actionOpen_Address_Book_triggered();
 
+    void on_tableView_clicked(const QModelIndex &index);
+
 private:
     Ui::MainWindow *ui;
     PhoneAddressBookModel *myModel;

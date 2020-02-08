@@ -27,3 +27,9 @@ void MainWindow::on_actionOpen_Address_Book_triggered()
 
     myModel->openFile(filename);
 }
+
+void MainWindow::on_tableView_clicked(const QModelIndex &index)
+{
+    std::cout << index.row() << "," << index.column() << std::endl;
+    ui->label->setText(myModel->getPhoneNumber(index.row()));
+}
