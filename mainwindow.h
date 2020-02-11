@@ -41,11 +41,13 @@ private slots:
 
     void on_oneButton_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     PhoneAddressBookModel *myModel;
     QPixmap imagePhone;
-    QString phoneNumber;
+    QString dialedNumber;
 
     void loadImage();
     void formatNumber(QString& phoneNumber); //Format dialed number as (xxx)-xxx-xxxx

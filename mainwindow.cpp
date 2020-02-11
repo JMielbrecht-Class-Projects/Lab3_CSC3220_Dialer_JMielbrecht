@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
+    ui->numDisplay->setText("");
     //ui->zeroButton->textArea.readOnly = true;
     loadImage();
 }
@@ -33,7 +34,9 @@ void MainWindow::on_actionOpen_Address_Book_triggered()
 void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
     std::cout << index.row() << "," << index.column() << std::endl;
-    ui->numDisplay->setText(myModel->getPhoneNumber(index.row()));
+    dialedNumber = myModel->getPhoneNumber(index.row());
+    ui->numDisplay->setText(dialedNumber);
+
 }
 
 void MainWindow::loadImage(){
@@ -48,99 +51,116 @@ void MainWindow::loadImage(){
 
 void MainWindow::formatNumber(QString &phoneNumber)
 {
-    if(phoneNumber.length() == 4){
-        phoneNumber.insert(3, "-"); //Add dash -> xxx-x
-    }else if(phoneNumber.length() == 8){
-        phoneNumber.insert(7, "-"); //Number: xxx-xxx-x...
+    //"Clean" number of formatting
+    for(int i = 0; i < phoneNumber.length(); i++){
+        if(phoneNumber.at(i) == "-"){
+            phoneNumber.remove(i, 1);
+        }
     }
+
+    for(int j = 0; j < phoneNumber.length(); j++){
+        if(j == 4){
+            phoneNumber.insert(j-1, "-"); //Add dash -> xxx-x
+        }else if(j == 8){
+            phoneNumber.insert(j-1, "-"); //Number: xxx-xxx-x...
+        }
+    }
+
     //Final number should look like this: xxx-xxx-xxxx
 }
 
 void MainWindow::on_zeroButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("0");
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("0");
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_nineButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("9");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("9");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_eightButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("8");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("8");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_sevenButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("7");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("7");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_sixButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("6");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("6");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_fiveButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("5");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("5");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_fourButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("4");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("4");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_threeButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("3");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("3");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_twoButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("2");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("2");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
 }
 
 void MainWindow::on_oneButton_clicked()
 {
-    if(phoneNumber.length() <= 11){
-        phoneNumber.append("1");
-        formatNumber(phoneNumber);
-        ui->numDisplay->setText(phoneNumber);
+    if(dialedNumber.length() <= 11){
+        dialedNumber.append("1");
+        formatNumber(dialedNumber);
+        ui->numDisplay->setText(dialedNumber);
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    dialedNumber = dialedNumber.remove(dialedNumber.length()-1, 1);
+    formatNumber(dialedNumber);
+    ui->numDisplay->setText(dialedNumber);
 }
