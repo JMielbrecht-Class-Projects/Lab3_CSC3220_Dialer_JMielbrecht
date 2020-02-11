@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
-    ui->zeroButton->textArea.readOnly = true;
+    //ui->zeroButton->textArea.readOnly = true;
 }
 
 MainWindow::~MainWindow()
