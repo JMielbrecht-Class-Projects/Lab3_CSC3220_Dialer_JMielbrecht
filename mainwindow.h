@@ -24,5 +24,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     PhoneAddressBookModel *myModel;
+    QPixmap imagePhone;
+
+    void loadImage();
 };
 #endif // MAINWINDOW_H

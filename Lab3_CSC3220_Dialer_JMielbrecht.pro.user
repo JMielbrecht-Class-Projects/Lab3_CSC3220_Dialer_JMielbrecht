@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.11.1, 2020-02-07T18:09:11. -->
+<!-- Written by QtCreator 4.11.1, 2020-02-10T20:14:15. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -287,8 +287,8 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/banks/Desktop/School/2019-20/Winter/App. Programing/Lab3_CSC3220_Dialer_JMielbrecht-master (1)/Lab3_CSC3220_Dialer_JMielbrecht-master/Lab3_CSC3220_Dialer_JMielbrecht.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/banks/Desktop/School/2019-20/Winter/App. Programing/Lab3_CSC3220_Dialer_JMielbrecht-master (1)/Lab3_CSC3220_Dialer_JMielbrecht-master/Lab3_CSC3220_Dialer_JMielbrecht.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/banks/Desktop/jordon 2.10.20/Lab3_CSC3220_Dialer_JMielbrecht-master/Lab3_CSC3220_Dialer_JMielbrecht.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/Users/banks/Desktop/jordon 2.10.20/Lab3_CSC3220_Dialer_JMielbrecht-master/Lab3_CSC3220_Dialer_JMielbrecht.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

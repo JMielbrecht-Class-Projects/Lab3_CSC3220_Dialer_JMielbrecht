@@ -34,3 +34,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     dialer-button.qml
+
+RESOURCES += \
+    images.qrc
