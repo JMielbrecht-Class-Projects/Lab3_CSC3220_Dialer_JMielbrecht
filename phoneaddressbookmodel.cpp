@@ -11,7 +11,7 @@ PhoneAddressBookModel::PhoneAddressBookModel(QObject* parent)
 
 int PhoneAddressBookModel::rowCount(const QModelIndex &parent) const
 {
-    return firstNames.size();
+    return filteredIndex.size();
 }
 
 int PhoneAddressBookModel::columnCount(const QModelIndex &parent) const
@@ -24,11 +24,11 @@ QVariant PhoneAddressBookModel::data(const QModelIndex &index, int role) const
     if(role == Qt::DisplayRole){
         switch(index.column()){
         case 0:
-            return firstNames.at(index.row());
+            return firstNames.at(filteredIndex[index.row()]);
         case 1:
-            return lastNames.at(index.row());
+            return lastNames.at(filteredIndex[index.row()]);
         case 2:
-            return phoneNumbers_1.at(index.row());
+            return phoneNumbers_1.at(filteredIndex[index.row()]);
         }
 
 //        return QString("Row%1, Row%2")
@@ -66,6 +66,8 @@ void PhoneAddressBookModel::openFile(QString filePath)
         firstNames.push_back(fields[0]);
         lastNames.push_back(fields[1]);
         phoneNumbers_1.push_back(fields[7]);
+
+        filteredIndex.push_back(i);
     }
     file.close();
 
@@ -75,5 +77,20 @@ void PhoneAddressBookModel::openFile(QString filePath)
 
 QString PhoneAddressBookModel::getPhoneNumber(int index)
 {
-    return phoneNumbers_1.at(index);
+    return phoneNumbers_1.at(filteredIndex[index]);
+}
+
+void PhoneAddressBookModel::setFilterString(QString fstr)
+{
+    filteredIndex.clear();
+
+    //Check if phone numbers are starting with fstr
+    for(unsigned int i = 0; i < phoneNumbers_1.size(); i++){
+        if(phoneNumbers_1[i].startsWith(fstr)){
+            filteredIndex.push_back(i);
+           // std::cout << phoneNumbers_1[i].toStdString() << std::endl;
+        }
+    }
+
+    emit layoutChanged();
 }

@@ -35,7 +35,8 @@ void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
     std::cout << index.row() << "," << index.column() << std::endl;
     dialedNumber = myModel->getPhoneNumber(index.row());
-    ui->numDisplay->setText(dialedNumber);
+    ui->numDisplay->setText(dialedNumber); //Number shows up on screen
+    myModel->setFilterString(dialedNumber); //Number used to filter address book
 
 }
 
@@ -74,6 +75,7 @@ void MainWindow::on_zeroButton_clicked()
     if(dialedNumber.length() <= 11){
         dialedNumber.append("0");
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -83,6 +85,7 @@ void MainWindow::on_nineButton_clicked()
         dialedNumber.append("9");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -92,6 +95,7 @@ void MainWindow::on_eightButton_clicked()
         dialedNumber.append("8");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -101,6 +105,7 @@ void MainWindow::on_sevenButton_clicked()
         dialedNumber.append("7");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -110,6 +115,7 @@ void MainWindow::on_sixButton_clicked()
         dialedNumber.append("6");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -119,6 +125,7 @@ void MainWindow::on_fiveButton_clicked()
         dialedNumber.append("5");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -128,6 +135,7 @@ void MainWindow::on_fourButton_clicked()
         dialedNumber.append("4");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -137,6 +145,7 @@ void MainWindow::on_threeButton_clicked()
         dialedNumber.append("3");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -146,6 +155,7 @@ void MainWindow::on_twoButton_clicked()
         dialedNumber.append("2");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -155,6 +165,7 @@ void MainWindow::on_oneButton_clicked()
         dialedNumber.append("1");
         formatNumber(dialedNumber);
         ui->numDisplay->setText(dialedNumber);
+        myModel->setFilterString(dialedNumber); //Number used to filter address book
     }
 }
 
@@ -163,4 +174,5 @@ void MainWindow::on_pushButton_clicked()
     dialedNumber = dialedNumber.remove(dialedNumber.length()-1, 1);
     formatNumber(dialedNumber);
     ui->numDisplay->setText(dialedNumber);
+    myModel->setFilterString(dialedNumber); //Number used to filter address book
 }
