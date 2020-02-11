@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
     //ui->zeroButton->textArea.readOnly = true;
+    loadImage();
 }
 
 MainWindow::~MainWindow()
@@ -33,4 +34,14 @@ void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
     std::cout << index.row() << "," << index.column() << std::endl;
     ui->label->setText(myModel->getPhoneNumber(index.row()));
+}
+
+void MainWindow::loadImage(){
+    QString phoneImageFile = ":/Images/oldPhoneIcon4.jpg";
+
+    if(imagePhone.load(phoneImageFile)) {
+        std::cout << "Image Loaded" << std::endl;
+        imagePhone = imagePhone.scaled(ui->phoneIcon->size(), Qt::KeepAspectRatio);
+    }
+    ui->phoneIcon->setPixmap(imagePhone);
 }
