@@ -40,6 +40,9 @@
     <property name="styleSheet">
      <string notr="true">background-color: rgb(188, 186, 190);</string>
     </property>
+    <attribute name="horizontalHeaderVisible">
+     <bool>false</bool>
+    </attribute>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -170,7 +173,7 @@
      <string>1</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="zeroButton_2">
+   <widget class="QPushButton" name="zeroButton">
     <property name="geometry">
      <rect>
       <x>254</x>
@@ -364,7 +367,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuTools">
