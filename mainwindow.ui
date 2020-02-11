@@ -44,7 +44,7 @@
      <bool>false</bool>
     </attribute>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="numDisplay">
     <property name="geometry">
      <rect>
       <x>40</x>

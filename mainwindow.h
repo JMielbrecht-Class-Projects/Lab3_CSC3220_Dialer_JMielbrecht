@@ -48,5 +48,6 @@ private:
     QString phoneNumber;
 
     void loadImage();
+    void formatNumber(QString& phoneNumber); //Format dialed number as (xxx)-xxx-xxxx
 };
 #endif // MAINWINDOW_H

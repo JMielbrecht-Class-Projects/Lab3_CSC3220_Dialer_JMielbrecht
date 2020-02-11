@@ -33,7 +33,7 @@ void MainWindow::on_actionOpen_Address_Book_triggered()
 void MainWindow::on_tableView_clicked(const QModelIndex &index)
 {
     std::cout << index.row() << "," << index.column() << std::endl;
-    ui->label->setText(myModel->getPhoneNumber(index.row()));
+    ui->numDisplay->setText(myModel->getPhoneNumber(index.row()));
 }
 
 void MainWindow::loadImage(){
@@ -46,72 +46,101 @@ void MainWindow::loadImage(){
     ui->phoneIcon->setPixmap(imagePhone);
 }
 
+void MainWindow::formatNumber(QString &phoneNumber)
+{
+    if(phoneNumber.length() == 4){
+        phoneNumber.insert(3, "-"); //Add dash -> xxx-x
+    }else if(phoneNumber.length() == 8){
+        phoneNumber.insert(7, "-"); //Number: xxx-xxx-x...
+    }
+    //Final number should look like this: xxx-xxx-xxxx
+}
+
 void MainWindow::on_zeroButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("0");
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_nineButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("9");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_eightButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("8");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_sevenButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("7");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_sixButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("6");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_fiveButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("5");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_fourButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("4");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_threeButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("3");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_twoButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("2");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
 
 void MainWindow::on_oneButton_clicked()
 {
-    while(phoneNumber.length() <= 9){
+    if(phoneNumber.length() <= 11){
         phoneNumber.append("1");
+        formatNumber(phoneNumber);
+        ui->numDisplay->setText(phoneNumber);
     }
 }
