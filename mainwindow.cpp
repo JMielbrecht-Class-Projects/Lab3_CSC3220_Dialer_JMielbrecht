@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->tableView->setModel(myModel);
     ui->numDisplay->setText("");
-    //ui->zeroButton->textArea.readOnly = true;
+
     loadImage();
 }
 
@@ -175,4 +175,9 @@ void MainWindow::on_pushButton_clicked()
     formatNumber(dialedNumber);
     ui->numDisplay->setText(dialedNumber);
     myModel->setFilterString(dialedNumber); //Number used to filter address book
+}
+
+void MainWindow::on_actionExit_3_triggered()
+{
+    exit(0); //Exit application
 }

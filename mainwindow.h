@@ -43,6 +43,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_actionExit_3_triggered();
+
 private:
     Ui::MainWindow *ui;
     PhoneAddressBookModel *myModel;
