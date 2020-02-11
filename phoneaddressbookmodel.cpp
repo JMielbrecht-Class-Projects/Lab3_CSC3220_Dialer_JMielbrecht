@@ -28,7 +28,7 @@ QVariant PhoneAddressBookModel::data(const QModelIndex &index, int role) const
         case 1:
             return lastNames.at(index.row());
         case 2:
-            return phoneNumbers.at(index.row());
+            return phoneNumbers_1.at(index.row());
         }
 
 //        return QString("Row%1, Row%2")
@@ -50,7 +50,7 @@ void PhoneAddressBookModel::openFile(QString filePath)
 
     firstNames.clear();
     lastNames.clear();
-    phoneNumbers.clear();
+    phoneNumbers_1.clear();
 
     for(int i = 0; !in.atEnd(); i++){
         QString line = in.readLine();
@@ -65,7 +65,7 @@ void PhoneAddressBookModel::openFile(QString filePath)
 
         firstNames.push_back(fields[0]);
         lastNames.push_back(fields[1]);
-        phoneNumbers.push_back(fields[2]);
+        phoneNumbers_1.push_back(fields[7]);
     }
     file.close();
 
@@ -75,5 +75,5 @@ void PhoneAddressBookModel::openFile(QString filePath)
 
 QString PhoneAddressBookModel::getPhoneNumber(int index)
 {
-    return phoneNumbers.at(index);
+    return phoneNumbers_1.at(index);
 }

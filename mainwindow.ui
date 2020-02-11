@@ -25,9 +25,9 @@
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>380</x>
       <y>10</y>
-      <width>321</width>
+      <width>351</width>
       <height>541</height>
      </rect>
     </property>
@@ -49,19 +49,27 @@
      <rect>
       <x>40</x>
       <y>80</y>
-      <width>211</width>
+      <width>181</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="text">
      <string>TextLabel</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="fourButton">
     <property name="geometry">
      <rect>
-      <x>104</x>
-      <y>287</y>
+      <x>64</x>
+      <y>277</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -89,8 +97,8 @@
    <widget class="QPushButton" name="threeButton">
     <property name="geometry">
      <rect>
-      <x>154</x>
-      <y>267</y>
+      <x>114</x>
+      <y>257</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -118,8 +126,8 @@
    <widget class="QPushButton" name="fiveButton">
     <property name="geometry">
      <rect>
-      <x>84</x>
-      <y>337</y>
+      <x>44</x>
+      <y>327</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -147,8 +155,8 @@
    <widget class="QPushButton" name="oneButton">
     <property name="geometry">
      <rect>
-      <x>254</x>
-      <y>287</y>
+      <x>214</x>
+      <y>277</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -176,10 +184,10 @@
    <widget class="QPushButton" name="zeroButton">
     <property name="geometry">
      <rect>
-      <x>254</x>
-      <y>437</y>
-      <width>40</width>
-      <height>40</height>
+      <x>214</x>
+      <y>427</y>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -205,8 +213,8 @@
    <widget class="QPushButton" name="sevenButton">
     <property name="geometry">
      <rect>
-      <x>104</x>
-      <y>437</y>
+      <x>64</x>
+      <y>427</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -234,8 +242,8 @@
    <widget class="QPushButton" name="sixButton">
     <property name="geometry">
      <rect>
-      <x>84</x>
-      <y>387</y>
+      <x>44</x>
+      <y>377</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -263,8 +271,8 @@
    <widget class="QPushButton" name="nineButton">
     <property name="geometry">
      <rect>
-      <x>204</x>
-      <y>457</y>
+      <x>164</x>
+      <y>447</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -292,8 +300,8 @@
    <widget class="QPushButton" name="eightButton">
     <property name="geometry">
      <rect>
-      <x>154</x>
-      <y>457</y>
+      <x>114</x>
+      <y>447</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -321,8 +329,8 @@
    <widget class="QPushButton" name="twoButton">
     <property name="geometry">
      <rect>
-      <x>204</x>
-      <y>267</y>
+      <x>164</x>
+      <y>257</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -350,8 +358,8 @@
    <widget class="QLabel" name="phoneIcon">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>320</y>
+      <x>110</x>
+      <y>310</y>
       <width>101</width>
       <height>121</height>
      </rect>
@@ -363,7 +371,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>290</x>
+      <x>230</x>
       <y>90</y>
       <width>75</width>
       <height>23</height>

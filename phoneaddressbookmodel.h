@@ -10,7 +10,7 @@ public:
     PhoneAddressBookModel(QObject* parent);
     std::vector<QString> firstNames;
     std::vector<QString> lastNames;
-    std::vector<QString> phoneNumbers;
+    std::vector<QString> phoneNumbers_1;
 
     // QAbstractItemModel interface
 public:
