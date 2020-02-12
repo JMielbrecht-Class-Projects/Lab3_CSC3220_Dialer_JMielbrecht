@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "dialog.h"
 #include <QFileDialog>
 #include <iostream>
 MainWindow::MainWindow(QWidget *parent)
@@ -198,6 +198,11 @@ void MainWindow::on_poundButton_clicked()
 void MainWindow::on_callButton_clicked()
 {
     std::cout << "Works" << std::endl;
+    //Open up dialog box
+    dialMessage = new Dialog(this);
+    dialMessage->setModal(true);
+    dialMessage->setMessageText(dialedNumber);
+    dialMessage->show();
 }
 
 

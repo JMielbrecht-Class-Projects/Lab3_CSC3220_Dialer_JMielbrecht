@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "phoneaddressbookmodel.h"
+#include "dialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -58,6 +59,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     PhoneAddressBookModel *myModel;
+    Dialog* dialMessage;
     QPixmap imagePhone;
     QString dialedNumber;
 
