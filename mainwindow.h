@@ -45,6 +45,16 @@ private slots:
 
     void on_actionExit_3_triggered();
 
+    void on_asteriskButton_clicked();
+
+    void on_poundButton_clicked();
+
+    void on_callButton_clicked();
+
+    void on_backSpaceButton_clicked();
+
+    void on_backButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     PhoneAddressBookModel *myModel;
