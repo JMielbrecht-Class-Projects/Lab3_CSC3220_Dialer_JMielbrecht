@@ -179,5 +179,5 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_actionExit_3_triggered()
 {
-    exit(0); //Exit application
+    exit(0);
 }

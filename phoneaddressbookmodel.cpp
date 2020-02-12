@@ -84,12 +84,69 @@ void PhoneAddressBookModel::setFilterString(QString fstr)
 {
     filteredIndex.clear();
 
+    QString nameNumber;
+
     //Check if phone numbers are starting with fstr
+
     for(unsigned int i = 0; i < phoneNumbers_1.size(); i++){
-        if(phoneNumbers_1[i].startsWith(fstr)){
+
+        //Convert name to a phone number for use in filtering
+        nameNumber = convertName(firstNames[i]);
+
+        //Filter address book entries
+        if(phoneNumbers_1[i].startsWith(fstr) || nameNumber.startsWith(fstr)){
             filteredIndex.push_back(i);
         }
     }
 
+    //Removing duplicate
     emit layoutChanged();
+}
+
+QString PhoneAddressBookModel::convertName(const QString &name)
+{
+    //Converting a name to a number
+    QString retNum = "";
+    for(int j = 0; j < name.length(); j++){
+        if(name.at(j) == 'A'|| 'a' || 'B' || 'b' || 'C' || 'c'){
+            retNum.append(2);
+        }else if(name.at(j) == 'D'|| 'd' || 'E' || 'e' || 'F' || 'f'){
+            retNum.append(3);
+        }else if(name.at(j) == 'G'|| 'g' || 'H' || 'h' || 'I' || 'i'){
+            retNum.append(4);
+        }else if(name.at(j) == 'J'|| 'j' || 'K' || 'k' || 'L' || 'l'){
+            retNum.append(5);
+        }else if(name.at(j) == 'M'|| 'm' || 'N' || 'n' || 'O' || 'o'){
+            retNum.append(6);
+        }else if(name.at(j) == 'P'|| 'p' || 'Q' || 'q' || 'R' || 'r' || 'S' || 's'){
+            retNum.append(7);
+        }else if(name.at(j) == 'T'|| 't' || 'U' || 'u' || 'V' || 'v'){
+            retNum.append(8);
+        }else if(name.at(j) == 'W'|| 'w' || 'X' || 'x' || 'Y' || 'y' || 'Z' || 'z'){
+            retNum.append(9);
+        }
+    }
+    formatNumber(retNum);
+    std::cout << retNum.toStdString() << std::endl;
+    return retNum;
+}
+
+void PhoneAddressBookModel::formatNumber(QString& phoneNumber)
+{
+    //"Clean" number of formatting
+    for(int i = 0; i < phoneNumber.length(); i++){
+        if(phoneNumber.at(i) == "-"){
+            phoneNumber.remove(i, 1);
+        }
+    }
+
+    for(int j = 0; j < phoneNumber.length(); j++){
+        if(j == 4){
+            phoneNumber.insert(j-1, "-"); //Add dash -> xxx-x
+        }else if(j == 8){
+            phoneNumber.insert(j-1, "-"); //Number: xxx-xxx-x...
+        }
+    }
+
+    //Final number should look like this: xxx-xxx-xxxx
 }
