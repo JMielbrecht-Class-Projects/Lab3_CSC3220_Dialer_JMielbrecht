@@ -198,11 +198,16 @@ void MainWindow::on_poundButton_clicked()
 void MainWindow::on_callButton_clicked()
 {
     std::cout << "Works" << std::endl;
+
     //Open up dialog box
     dialMessage = new Dialog(this);
     dialMessage->setModal(true);
     dialMessage->setMessageText(dialedNumber);
     dialMessage->show();
+
+    //Erase number from dialpad
+    dialedNumber = "";
+    ui->numDisplay->setText(dialedNumber);
 }
 
 
