@@ -45,7 +45,7 @@ void MainWindow::loadImage(){
 
     if(imagePhone.load(phoneImageFile)) {
         std::cout << "Image Loaded" << std::endl;
-        imagePhone = imagePhone.scaled(ui->phoneIcon->size(), Qt::KeepAspectRatio); //Loads iamge of phone.
+        imagePhone = imagePhone.scaled(ui->phoneIcon->size(), Qt::KeepAspectRatio);
     }
     ui->phoneIcon->setPixmap(imagePhone);
 }
@@ -169,52 +169,15 @@ void MainWindow::on_oneButton_clicked()
     }
 }
 
-
+void MainWindow::on_pushButton_clicked()
+{
+    dialedNumber = dialedNumber.remove(dialedNumber.length()-1, 1);
+    formatNumber(dialedNumber);
+    ui->numDisplay->setText(dialedNumber);
+    myModel->setFilterString(dialedNumber); //Number used to filter address book
+}
 
 void MainWindow::on_actionExit_3_triggered()
 {
-    exit(0); //Exit application
-}
-
-void MainWindow::on_asteriskButton_clicked()
-{
-    if(dialedNumber.length() <= 11){
-        dialedNumber.append("*");
-        formatNumber(dialedNumber);
-        ui->numDisplay->setText(dialedNumber);
-        myModel->setFilterString(dialedNumber); //Number used to filter address book
-}
-}
-void MainWindow::on_poundButton_clicked()
-{
-    if(dialedNumber.length() <= 11){
-        dialedNumber.append("#");
-        formatNumber(dialedNumber);
-        ui->numDisplay->setText(dialedNumber);
-        myModel->setFilterString(dialedNumber); //Number used to filter address book
-}
-}
-
-void MainWindow::on_callButton_clicked()
-{
-    std::cout << "Works" << std::endl;
-}
-
-
-
-void MainWindow::on_backSpaceButton_clicked()
-{
-    dialedNumber = dialedNumber.remove(dialedNumber.length()-1, 1);
-    formatNumber(dialedNumber);
-    ui->numDisplay->setText(dialedNumber);
-    myModel->setFilterString(dialedNumber); //Number used to filter address book
-    std::cout << "Works" << std::endl;
-}
-
-void MainWindow::on_backButton_clicked()
-{
-    dialedNumber = dialedNumber.remove(dialedNumber.length()-1, 1);
-    formatNumber(dialedNumber);
-    ui->numDisplay->setText(dialedNumber);
-    myModel->setFilterString(dialedNumber); //Number used to filter address book
+    exit(0);
 }

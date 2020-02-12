@@ -84,12 +84,69 @@ void PhoneAddressBookModel::setFilterString(QString fstr)
 {
     filteredIndex.clear();
 
+    QString nameNumber;
+
     //Check if phone numbers are starting with fstr
+
     for(unsigned int i = 0; i < phoneNumbers_1.size(); i++){
-        if(phoneNumbers_1[i].startsWith(fstr)){
+
+        //Convert name to a phone number for use in filtering
+        nameNumber = convertName(firstNames[i]);
+
+        //Filter address book entries
+        if(phoneNumbers_1[i].startsWith(fstr) || nameNumber.startsWith(fstr)){
             filteredIndex.push_back(i);
         }
     }
 
+    //Removing duplicate
     emit layoutChanged();
+}
+
+QString PhoneAddressBookModel::convertName(const QString &name)
+{
+    //Converting a name to a number
+    QString retNum = "";
+    for(int j = 0; j < name.length(); j++){
+        if(name.at(j) == 'A'||name.at(j) == 'a' ||name.at(j) == 'B' ||name.at(j) == 'b' ||name.at(j) == 'C' ||name.at(j) == 'c'){
+            retNum.append("2");
+        }else if(name.at(j) == 'D'|| name.at(j) == 'd' || name.at(j) =='E' || name.at(j) =='e' || name.at(j) =='F' || name.at(j) =='f'){
+            retNum.append("3");
+        }else if(name.at(j) == 'G'||name.at(j) == 'g' ||name.at(j) == 'H' ||name.at(j) == 'h' ||name.at(j) == 'I' ||name.at(j) == 'i'){
+            retNum.append("4");
+        }else if(name.at(j) == 'J'||name.at(j) == 'j' ||name.at(j) == 'K' ||name.at(j) == 'k' || name.at(j) =='L' ||name.at(j) == 'l'){
+            retNum.append("5");
+        }else if(name.at(j) == 'M'||name.at(j) == 'm' ||name.at(j) == 'N' || name.at(j) =='n' ||name.at(j) == 'O' ||name.at(j) == 'o'){
+            retNum.append("6");
+        }else if(name.at(j) == 'P'||name.at(j) == 'p' ||name.at(j) == 'Q' ||name.at(j) == 'q' ||name.at(j) == 'R' ||name.at(j) == 'r' || name.at(j) =='S' ||name.at(j) == 's'){
+            retNum.append("7");
+        }else if(name.at(j) == 'T'|| name.at(j) =='t' ||name.at(j) == 'U' ||name.at(j) == 'u' || name.at(j) =='V' || name.at(j) =='v'){
+            retNum.append("8");
+        }else if(name.at(j) == 'W'|| name.at(j) =='w' || name.at(j) =='X' || name.at(j) =='x' || name.at(j) =='Y' || name.at(j) =='y' || name.at(j) =='Z' ||name.at(j) == 'z'){
+            retNum.append("9");
+        }
+    }
+    formatNumber(retNum);
+    std::cout << retNum.toStdString() << std::endl;
+    return retNum;
+}
+
+void PhoneAddressBookModel::formatNumber(QString& phoneNumber)
+{
+    //"Clean" number of formatting
+    for(int i = 0; i < phoneNumber.length(); i++){
+        if(phoneNumber.at(i) == "-"){
+            phoneNumber.remove(i, 1);
+        }
+    }
+
+    for(int j = 0; j < phoneNumber.length(); j++){
+        if(j == 4){
+            phoneNumber.insert(j-1, "-"); //Add dash -> xxx-x
+        }else if(j == 8){
+            phoneNumber.insert(j-1, "-"); //Number: xxx-xxx-x...
+        }
+    }
+
+    //Final number should look like this: xxx-xxx-xxxx
 }
