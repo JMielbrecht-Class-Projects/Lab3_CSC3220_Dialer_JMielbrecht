@@ -18,6 +18,8 @@ public:
     QString getPhoneNumber(int index);
     void setFilterString(QString fstr);
 
+    void formatNumber(QString& phoneNumber);
+    QString convertName(const QString &name);
 private:
     std::vector<QString> firstNames;
     std::vector<QString> lastNames;
